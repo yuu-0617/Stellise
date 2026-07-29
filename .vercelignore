@@ -1,0 +1,11 @@
+*
+!api/
+!api/**
+!docs/
+!docs/support-manual.md
+!website/
+!website/**
+!.openai/
+!.openai/hosting.json
+!package.json
+!vercel.json
