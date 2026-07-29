@@ -1,0 +1,17 @@
+{
+  "name": "Stellise",
+  "short_name": "Stellise",
+  "description": "睡眠から出発まで。毎朝の判断を減らすiPhoneアプリ。",
+  "lang": "ja",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f7fb",
+  "theme_color": "#f6f7fb",
+  "icons": [
+    {
+      "src": "assets/app-icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}
