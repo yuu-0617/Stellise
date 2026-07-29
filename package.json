@@ -1,0 +1,10 @@
+{
+  "name": "stellise-website",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node website/build.mjs",
+    "dev": "node website/build.mjs && node website/serve.mjs",
+    "start": "node website/serve.mjs"
+  }
+}

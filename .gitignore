@@ -4,4 +4,7 @@ Pods/
 build/
 *.xcuserstate
 xcuserdata/
+dist/
+__pycache__/
+*.pyc
 サウンド素材/
