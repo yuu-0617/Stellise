@@ -5,6 +5,7 @@
   "scripts": {
     "build": "node website/build.mjs",
     "dev": "node website/build.mjs && node website/serve.mjs",
+    "prestart": "node website/build.mjs",
     "start": "node website/serve.mjs"
   }
 }

@@ -19,7 +19,8 @@ const types = {
   ".js": "text/javascript; charset=utf-8",
   ".md": "text/markdown; charset=utf-8",
   ".png": "image/png",
-  ".svg": "image/svg+xml"
+  ".svg": "image/svg+xml",
+  ".webp": "image/webp"
 };
 
 function sendJson(response, status, payload) {
@@ -28,19 +29,32 @@ function sendJson(response, status, payload) {
     "Content-Type": "application/json; charset=utf-8",
     "Content-Length": Buffer.byteLength(body),
     "Cache-Control": "no-store",
-    "X-Content-Type-Options": "nosniff"
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "X-Frame-Options": "DENY"
   });
   response.end(body);
 }
 
 function getClientAddress(request) {
-  return String(request.headers["x-forwarded-for"] || request.socket.remoteAddress || "unknown")
-    .split(",")[0]
-    .trim();
+  const cloudflareAddress = request.headers["cf-connecting-ip"];
+  const realAddress = request.headers["x-real-ip"];
+  const forwardedAddresses = String(request.headers["x-forwarded-for"] || "")
+    .split(",")
+    .map((address) => address.trim())
+    .filter(Boolean);
+  return String(cloudflareAddress || realAddress || forwardedAddresses.at(-1) || request.socket.remoteAddress || "unknown");
 }
 
 function isRateLimited(clientAddress, limit = 15, windowMs = 10 * 60 * 1000) {
   const now = Date.now();
+  if (rateBuckets.size > 10_000) {
+    for (const [address, stamps] of rateBuckets) {
+      const active = stamps.filter((stamp) => now - stamp < windowMs);
+      if (active.length) rateBuckets.set(address, active);
+      else rateBuckets.delete(address);
+    }
+  }
   const recent = (rateBuckets.get(clientAddress) || []).filter((stamp) => now - stamp < windowMs);
   if (recent.length >= limit) {
     rateBuckets.set(clientAddress, recent);
@@ -99,10 +113,13 @@ ${JSON.stringify(safeHistory)}
 利用者の質問:
 ${question}`;
 
-  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(geminiApiKey)}`;
+  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`;
   const upstream = await fetch(endpoint, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "x-goog-api-key": geminiApiKey
+    },
     body: JSON.stringify({
       contents: [{ role: "user", parts: [{ text: prompt }] }],
       generationConfig: { responseMimeType: "application/json" }
@@ -168,7 +185,10 @@ async function handleStatic(request, response, pathname) {
     response.writeHead(200, {
       "Content-Type": types[extname(file)] || "application/octet-stream",
       "Cache-Control": extname(file) === ".html" ? "no-cache" : "public, max-age=3600",
-      "X-Content-Type-Options": "nosniff"
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "X-Frame-Options": "DENY",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
     });
     createReadStream(file).pipe(response);
   } catch {

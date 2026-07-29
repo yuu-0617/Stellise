@@ -16,19 +16,6 @@ for (const file of await readdir(source)) {
   });
 }
 
-const assets = [
-  ["docs/screenshots/home-clear.png", "home-clear.png"],
-  ["docs/screenshots/home-rain.png", "home-rain.png"],
-  ["docs/screenshots/home-night.png", "home-night.png"],
-  ["docs/screenshots/tasks.png", "tasks.png"],
-  ["docs/screenshots/sleep-score.png", "sleep-score.png"],
-  ["Stellise/Assets.xcassets/AppIcon.appiconset/Icon-1024.png", "app-icon.png"]
-];
-
-for (const [from, to] of assets) {
-  await cp(join(root, from), join(output, "assets", to));
-}
-
 await cp(join(root, "docs", "support-manual.md"), join(output, "support-manual.md"));
 
 console.log("Built Stellise website in dist/");
