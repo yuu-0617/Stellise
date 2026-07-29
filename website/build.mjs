@@ -17,5 +17,7 @@ for (const file of await readdir(source)) {
 }
 
 await cp(join(root, "docs", "support-manual.md"), join(output, "support-manual.md"));
+await mkdir(join(output, ".openai"), { recursive: true });
+await cp(join(root, ".openai", "hosting.json"), join(output, ".openai", "hosting.json"));
 
 console.log("Built Stellise website in dist/");
