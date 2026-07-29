@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f3ed">
+  <meta name="theme-color" content="#f3f0e8">
   <meta name="description" content="Stelliseは、睡眠・天気・交通・予定をもとに、起きる時間と朝の順番を整えるiPhoneアプリです。朝が苦手な、すべての人へ。">
-  <meta property="og:title" content="Stellise — 朝が苦手って、意志のせいじゃない。">
+  <meta property="og:title" content="Stellise — 朝は、考えることが多すぎる。">
   <meta property="og:description" content="眠りから出発まで。毎朝の順番を、あなたに合わせて整えます。">
   <meta property="og:image" content="assets/app-icon.png">
   <meta property="og:type" content="website">
-  <title>Stellise — 朝が苦手って、意志のせいじゃない。</title>
+  <title>Stellise — 朝は、考えることが多すぎる。</title>
   <link rel="icon" href="assets/app-icon.png">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -21,15 +21,13 @@
   </div>
 
   <header class="site-header" id="header">
-    <a class="brand" href="#top" aria-label="Stellise トップへ">
-      <img src="assets/app-icon.png" alt="">
-      <span>Stellise</span>
-    </a>
+    <a class="brand" href="#top" aria-label="Stellise トップへ"><img src="assets/app-icon.png" alt=""><span>Stellise</span></a>
     <nav aria-label="メインナビゲーション">
-      <a href="#why">できること</a>
-      <a href="#privacy">プライバシー</a>
+      <a href="#story">ある朝の例</a>
+      <a href="#features">できること</a>
+      <a href="#about">私たちの考え</a>
       <a href="#support">サポート</a>
-      <a class="nav-cta" href="https://apps.apple.com/jp/app/id6760934295">App Storeで見る</a>
+      <a class="nav-cta" href="https://apps.apple.com/jp/app/id6760934295">App Store</a>
     </nav>
     <button class="menu-button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span></button>
   </header>
@@ -37,134 +35,76 @@
   <main id="top">
     <section class="hero">
       <div class="hero-copy reveal">
-        <p class="kicker">朝が苦手な、すべての人へ。</p>
-        <h1>朝が苦手って、<br><em>意志のせいじゃない。</em></h1>
-        <p class="lead">寝不足の日も、雨の日も、電車が遅れた日も。Stelliseは、その日の状況に合わせて、起きる時間と朝の順番を整えます。</p>
-        <div class="hero-actions">
-          <a class="primary-button magnetic" href="https://apps.apple.com/jp/app/id6760934295">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.79 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09ZM12.03 7.25C11.88 5.02 13.69 3.18 15.77 3c.29 2.58-2.34 4.5-3.74 4.25Z"/></svg>
-            App Storeで見る
-          </a>
-          <a class="quiet-link" href="#why">どんなアプリ？ <span>↓</span></a>
-        </div>
-        <p class="small-note">iPhone対応 · 基本機能は無料</p>
+        <div class="hero-meta"><span>iPhoneアプリ</span><span>基本無料</span></div>
+        <h1>朝は、<br>考えることが<br>多すぎる。</h1>
+        <p class="lead">何時に起きるか。雨なら何分早く出るか。遅れている電車に、どう間に合わせるか。Stelliseは、そんな朝の判断を少し引き受けます。</p>
+        <div class="hero-actions"><a class="primary-button magnetic" href="https://apps.apple.com/jp/app/id6760934295"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.79 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09ZM12.03 7.25C11.88 5.02 13.69 3.18 15.77 3c.29 2.58-2.34 4.5-3.74 4.25Z"/></svg>App Storeで見る</a><a class="quiet-link" href="#story">朝の例を読む ↓</a></div>
       </div>
+      <figure class="hero-figure reveal">
+        <div class="phone"><img src="assets/home-clear.webp" alt="天気、出発時刻、朝のタスクを表示するStelliseのホーム画面"></div>
+        <figcaption><span>朝のホーム画面</span><span>天気と予定に合わせて表示が変わります</span></figcaption>
+      </figure>
+    </section>
 
-      <div class="hero-visual reveal" aria-label="Stelliseのアプリ画面">
-        <div class="morning-disc"></div>
-        <div class="phone phone-main"><img src="assets/home-clear.webp" alt="天気、出発時刻、朝のタスクを表示するStelliseのホーム画面"></div>
-        <div class="hand-note note-one">今日の天気を見て<br>持ち物を調整</div>
-        <div class="hand-note note-two">出発までの時間から<br>やることを整理</div>
+    <section class="intro-line reveal">
+      <p>「急いで」ではなく、<br>「次はこれ」を伝えるアプリです。</p>
+    </section>
+
+    <section class="morning-story" id="story">
+      <header class="story-header reveal"><p class="folio">ある朝の例</p><h2>雨の火曜日、<br>7時から7時30分まで。</h2><p>これはStelliseがある朝を整えるときの、ひとつの例です。</p></header>
+      <div class="story-body">
+        <ol class="timeline">
+          <li class="reveal"><time>7:00</time><div><h3>アラームが鳴る</h3><p>睡眠の状態を見ながら、設定時刻の近くで起きやすい瞬間を探します。</p></div></li>
+          <li class="reveal"><time>7:03</time><div><h3>外は雨</h3><p>駅までの時間をいつもより長めに計算。出発時刻を少し早めます。</p></div></li>
+          <li class="reveal"><time>7:08</time><div><h3>電車に遅れ</h3><p>朝食より先に着替えるよう、支度の順番を組み替えます。</p></div></li>
+          <li class="reveal"><time>7:20</time><div><h3>傘を忘れずに</h3><p>持ち物をひとつ追加。画面には、次にすることだけを表示します。</p></div></li>
+          <li class="reveal"><time>7:30</time><div><h3>出発</h3><p>すべて完璧でなくても、間に合う形で家を出られます。</p></div></li>
+        </ol>
+        <figure class="story-screen reveal"><img src="assets/home-rain.webp" alt="雨の日のStelliseホーム画面"><figcaption>雨の日のホーム画面</figcaption></figure>
       </div>
     </section>
 
-    <section class="morning-problems" id="why">
-      <div class="section-heading reveal">
-        <p>こんな朝、ありませんか。</p>
-        <h2>起きたあとの判断が、<br>いちばん大変だったりする。</h2>
-      </div>
-      <div class="problem-list">
-        <article class="problem-card reveal"><span class="problem-time">7:02</span><div><h3>雨なのに、いつも通りの支度。</h3><p>駅まで時間がかかることに、家を出る直前で気づく。</p></div></article>
-        <article class="problem-card reveal"><span class="problem-time">7:18</span><div><h3>電車が遅れて、全部ずれる。</h3><p>急いでいるのに、何を先にすればいいか決められない。</p></div></article>
-        <article class="problem-card reveal"><span class="problem-time">7:41</span><div><h3>あと5分が、いつの間にか30分。</h3><p>強いアラームで起きても、頭と身体がついてこない。</p></div></article>
+    <section class="feature-index" id="features">
+      <header class="index-heading reveal"><p class="folio">できること</p><h2>朝の前と、朝のあと。</h2></header>
+      <div class="index-list">
+        <article class="index-item reveal"><span>一</span><div><h3>起きやすい時間を探す</h3><p>iPhoneのマイクとモーション情報を使って、睡眠の状態を端末内で解析します。</p></div><small>スマートアラーム</small></article>
+        <article class="index-item reveal"><span>二</span><div><h3>朝の順番を組み直す</h3><p>天気、交通、カレンダー、いつもの支度から、その日に合う順番を考えます。</p></div><small>朝のタスク</small></article>
+        <article class="index-item reveal"><span>三</span><div><h3>眠りの傾向を振り返る</h3><p>毎晩の睡眠をスコアにして、一週間の変化と短いアドバイスを表示します。</p></div><small>睡眠レポート</small></article>
+        <article class="index-item reveal"><span>四</span><div><h3>眠る前の時間を静かにする</h3><p>夜の画面と環境音で、就寝前の時間を整えます。環境音はPro版限定です。</p></div><small>夜モード</small></article>
       </div>
     </section>
 
-    <section class="answer-section">
-      <div class="answer-copy reveal">
-        <p class="section-number">01</p>
-        <h2>その朝に必要な順番を、<br>ひとつずつ。</h2>
-        <p>Stelliseは、天気、電車、カレンダー、いつもの支度をまとめて確認します。予定が変わったときは、出発に間に合うよう朝の流れを組み直します。</p>
-        <div class="example-routine" aria-label="朝のタスク例">
-          <div><span>7:05</span><strong>水を一杯飲む</strong><small>2分</small></div>
-          <div><span>7:07</span><strong>洗顔と歯みがき</strong><small>8分</small></div>
-          <div><span>7:15</span><strong>先に着替える</strong><small>5分</small></div>
-          <div class="changed"><span>7:20</span><strong>傘を忘れずに</strong><small>雨のため追加</small></div>
-        </div>
-      </div>
-      <div class="answer-visual reveal">
-        <div class="weather-caption"><span>雨の朝</span><strong>予定を自動で調整</strong></div>
-        <div class="phone"><img src="assets/home-rain.webp" alt="雨の日に予定を調整するStelliseの画面"></div>
-      </div>
-    </section>
-
-    <section class="sleep-section">
-      <div class="sleep-visual reveal">
-        <div class="phone"><img src="assets/sleep-score.webp" alt="睡眠スコアとアドバイスを表示するStelliseの画面"></div>
-      </div>
-      <div class="sleep-copy reveal">
-        <p class="section-number">02</p>
-        <h2>起きることだけじゃなく、<br>眠るところから。</h2>
-        <p>音と身体の動きをiPhoneの中で解析し、眠りが浅いタイミングを探します。翌朝には睡眠スコアと、無理なく試せる小さなアドバイスを。</p>
-        <ul>
-          <li><span>✓</span>眠りの浅い時間をねらうスマートアラーム</li>
-          <li><span>✓</span>一週間のリズムが見える睡眠スコア</li>
-          <li><span>✓</span>焚き火、波、雨などの環境音</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="night-section">
-      <div class="night-copy reveal">
-        <p class="section-number">03</p>
-        <h2>一日の終わりは、<br>静かな画面で。</h2>
-        <p>眠る前に必要なものだけを残した夜の画面。アラームを確認して、好きな環境音を選んだら、そのまま休めます。</p>
-      </div>
-      <div class="night-visual reveal">
-        <div class="moon"></div>
-        <div class="phone"><img src="assets/home-night.webp" alt="月と星が浮かぶStelliseの夜画面"></div>
-      </div>
+    <section class="screens-spread">
+      <figure class="report-figure reveal"><div class="phone"><img src="assets/sleep-score.webp" alt="睡眠スコアとアドバイスを表示するStelliseの画面"></div><figcaption><strong>睡眠レポート</strong><span>良かった日も、そうでない日も。数字を責めるためではなく、生活の癖を知るために。</span></figcaption></figure>
+      <figure class="night-figure reveal"><div class="night-label">Pro版では環境音も使えます</div><div class="phone"><img src="assets/home-night.webp" alt="起床までの残り時間と環境音を表示するStelliseの夜画面"></div><figcaption><strong>夜の画面</strong><span>眠る前に見る情報は、できるだけ少なくしました。</span></figcaption></figure>
     </section>
 
     <section class="privacy-section" id="privacy">
-      <div class="privacy-copy reveal">
-        <p>眠っている時間のデータだから。</p>
-        <h2>できるだけ、<br>iPhoneの中で。</h2>
-      </div>
-      <div class="privacy-details reveal">
-        <p>音声と身体の動きは端末内で解析します。録音データそのものをサーバーに保存することはありません。</p>
-        <div class="privacy-points">
-          <div><strong>録音を保存しない</strong><span>解析結果だけを統計として使用</span></div>
-          <div><strong>必要な情報だけ</strong><span>タスク提案に必要な範囲で利用</span></div>
-          <div><strong>いつでも削除できる</strong><span>アプリの設定から手続き可能</span></div>
-        </div>
-        <a href="privacy.html">プライバシーポリシーを読む →</a>
-      </div>
+      <div class="privacy-title reveal"><p class="folio">データについて</p><h2>眠っている時間のことだから、<br>扱い方も静かに。</h2></div>
+      <div class="privacy-body reveal"><p>音声と身体の動きはiPhoneの中で解析します。録音データそのものをサーバーへ保存することはありません。</p><dl><div><dt>端末内で解析</dt><dd>音声・体動の生データ</dd></div><div><dt>必要な範囲で利用</dt><dd>予定・天気・タスク情報</dd></div><div><dt>設定から削除</dt><dd>アカウントと保存データ</dd></div></dl><a href="privacy.html">詳しいプライバシーポリシー →</a></div>
     </section>
 
-    <section class="human-ai-section">
-      <div class="human-ai-inner reveal">
-        <p>AIは、前に出るためではなく。</p>
-        <h2>朝の迷いを、<br>少し減らすために。</h2>
-        <p>難しい設定や、会話の上手さは必要ありません。いつもの予定を登録したら、あとはStelliseがその朝に合う形へ整えます。決める回数がひとつ減るだけで、朝はもう少し軽くなるはずです。</p>
+    <section class="makers-note" id="about">
+      <div class="note-paper reveal">
+        <p class="folio">私たちの考え</p>
+        <h2>人を急かすのではなく、<br>迷う回数を減らしたい。</h2>
+        <p>朝がうまくいかない理由を、本人の意志の弱さだけにしたくありません。寝不足の日も、予定が崩れた日も、そのときできる順番があれば動きやすくなる。Stelliseは、毎朝を完璧にするためではなく、少しだけ楽にするための道具として作っています。</p>
+        <div class="signatures"><span>Yunosuke Tokiwai</span><span>Masashi Nakamura</span></div>
       </div>
     </section>
 
     <section class="closing-section">
-      <div class="closing-copy reveal">
-        <img src="assets/app-icon.png" alt="Stelliseアプリアイコン">
-        <h2>明日の朝を、<br>今夜から少し変えてみる。</h2>
-        <p>まずは、いつものアラームを登録するところから。</p>
-        <a class="primary-button dark magnetic" href="https://apps.apple.com/jp/app/id6760934295">App StoreでStelliseを試す</a>
-      </div>
+      <div class="closing-inner reveal"><img src="assets/app-icon.png" alt="Stelliseアプリアイコン"><div><p>Stellise</p><h2>まずは、明日のアラームから。</h2></div><a class="primary-button dark magnetic" href="https://apps.apple.com/jp/app/id6760934295">App Storeで試す</a></div>
     </section>
   </main>
 
   <footer id="support">
-    <div class="footer-main">
-      <div><a class="brand" href="#top"><img src="assets/app-icon.png" alt=""><span>Stellise</span></a><p>朝が苦手な、すべての人へ。</p></div>
-      <div class="footer-links"><a href="terms.html">利用規約</a><a href="privacy.html">プライバシーポリシー</a><a href="mailto:yuu.developer@icloud.com">お問い合わせ</a><a href="https://github.com/Maaa2005/Stellise">GitHub</a></div>
-      <div class="socials" aria-label="ソーシャルメディア"><a href="https://www.instagram.com/stellise_app?igsh=MW1obnBydjQzcDB4aA%3D%3D&amp;utm_source=qr" target="_blank" rel="noreferrer">Instagram</a><a href="https://x.com/stellise_app?s=11" target="_blank" rel="noreferrer">X</a><a href="https://www.tiktok.com/@stellise_app" target="_blank" rel="noreferrer">TikTok</a></div>
-    </div>
-    <div class="footer-bottom"><span>© 2026 Stellise</span><span>Made for better mornings.</span></div>
+    <div class="footer-main"><div><a class="brand" href="#top"><img src="assets/app-icon.png" alt=""><span>Stellise</span></a><p>朝が苦手な、すべての人へ。</p></div><div class="footer-links"><a href="terms.html">利用規約</a><a href="privacy.html">プライバシーポリシー</a><a href="mailto:yuu.developer@icloud.com">お問い合わせ</a><a href="https://github.com/Maaa2005/Stellise">GitHub</a></div><div class="socials" aria-label="ソーシャルメディア"><a href="https://www.instagram.com/stellise_app?igsh=MW1obnBydjQzcDB4aA%3D%3D&amp;utm_source=qr" target="_blank" rel="noreferrer">Instagram</a><a href="https://x.com/stellise_app?s=11" target="_blank" rel="noreferrer">X</a><a href="https://www.tiktok.com/@stellise_app" target="_blank" rel="noreferrer">TikTok</a></div></div>
+    <div class="footer-bottom"><span>© 2026 Stellise Yunosuke Tokiwai &amp; Masashi Nakamura</span><span>iPhoneアプリ</span></div>
   </footer>
 
   <button class="chat-launcher" aria-label="Stelliseサポートを開く" aria-expanded="false"><span class="chat-pulse"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.49 3 2 6.81 2 11.5c0 2.44 1.23 4.67 3.39 6.23L4.5 21l3.73-1.72c1.18.47 2.45.72 3.77.72 5.51 0 10-3.81 10-8.5S17.51 3 12 3Z"/></svg></button>
-  <aside class="chat-panel" aria-hidden="true" aria-label="Stelliseサポート">
-    <div class="chat-header"><div><span class="assistant-dot"></span><strong>Stellise サポート</strong><small>マニュアルをもとに回答します</small></div><button class="chat-close" aria-label="チャットを閉じる">×</button></div>
-    <div class="chat-messages" aria-live="polite"><div class="message bot">こんにちは。使い方や料金、プライバシーについて、気軽に聞いてください。</div><div class="quick-replies"><button>何ができる？</button><button>プライバシーは？</button><button>料金は？</button></div></div>
-    <form class="chat-form"><label class="sr-only" for="chat-input">質問を入力</label><input id="chat-input" maxlength="500" autocomplete="off" placeholder="質問を入力…"><button type="submit" aria-label="送信">↑</button></form>
-  </aside>
+  <aside class="chat-panel" aria-hidden="true" aria-label="Stelliseサポート"><div class="chat-header"><div><span class="assistant-dot"></span><strong>Stellise サポート</strong><small>マニュアルをもとに回答します</small></div><button class="chat-close" aria-label="チャットを閉じる">×</button></div><div class="chat-messages" aria-live="polite"><div class="message bot">こんにちは。使い方や料金、プライバシーについて、気軽に聞いてください。</div><div class="quick-replies"><button>何ができる？</button><button>プライバシーは？</button><button>料金は？</button></div></div><form class="chat-form"><label class="sr-only" for="chat-input">質問を入力</label><input id="chat-input" maxlength="500" autocomplete="off" placeholder="質問を入力…"><button type="submit" aria-label="送信">↑</button></form></aside>
   <script src="script.js"></script>
 </body>
 </html>
