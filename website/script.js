@@ -167,7 +167,7 @@ async function sendQuestion(question) {
   typing.classList.add("typing");
 
   try {
-    const response = await fetch("/api/chat", {
+    const response = await fetch("/api/chat.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question: cleanQuestion, history: conversationHistory.slice(-6) })

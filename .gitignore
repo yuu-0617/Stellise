@@ -9,3 +9,5 @@ __pycache__/
 *.pyc
 サウンド素材/
 .vercel
+rental-release/
+stellise-rental-server.zip

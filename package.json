@@ -5,6 +5,8 @@
   "version": "1.0.0",
   "scripts": {
     "build": "node website/build.mjs",
+    "build:rental": "node website/build.mjs --target=rental",
+    "package:rental": "npm run build:rental && node website/package-rental.mjs",
     "dev": "node website/build.mjs && node website/serve.mjs",
     "prestart": "node website/build.mjs",
     "start": "node website/serve.mjs"
