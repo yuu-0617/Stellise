@@ -4,28 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0c1020">
+  <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="description" content="Stellise（ステライズ）は、睡眠、天気、交通、予定から、起きる時間と朝の順番を整えるiPhoneアプリです。朝が苦手なすべての人へ。">
   <meta name="apple-itunes-app" content="app-id=6760934295">
   <meta property="og:title" content="Stellise｜眠りから朝をデザインする">
   <meta property="og:description" content="睡眠から出発まで。毎朝の判断を減らすiPhoneアプリ。">
-  <meta property="og:image" content="assets/og-stellise.png">
+  <meta property="og:image" content="https://stellise-app.com/assets/og-stellise.png">
+  <meta property="og:image:alt" content="睡眠から朝の行動までを整えるStellise">
+  <meta property="og:url" content="https://stellise-app.com/">
+  <meta property="og:site_name" content="Stellise">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stellise｜眠りから朝をデザインする">
+  <meta name="twitter:description" content="睡眠から出発まで。毎朝の判断を減らすiPhoneアプリ。">
+  <meta name="twitter:image" content="https://stellise-app.com/assets/og-stellise.png">
   <title>Stellise（ステライズ）｜睡眠から朝の予定まで整えるiPhoneアプリ</title>
+  <link rel="canonical" href="https://stellise-app.com/">
   <link rel="icon" href="assets/app-icon.png">
   <link rel="apple-touch-icon" href="assets/app-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="assets/home-clear.webp" as="image" type="image/webp">
-  <link rel="stylesheet" href="styles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Stellise","alternateName":"ステライズ","description":"睡眠、天気、交通、予定から、起きる時間と朝の順番を整えるiPhoneアプリ。","applicationCategory":"LifestyleApplication","operatingSystem":"iOS 26.1 or later","downloadUrl":"https://apps.apple.com/jp/app/id6760934295","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
+  <link rel="stylesheet" href="styles.css?v=20260731-1">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MobileApplication","@id":"https://stellise-app.com/#app","name":"Stellise","alternateName":"ステライズ","url":"https://stellise-app.com/","description":"睡眠、天気、交通、予定から、起きる時間と朝の順番を整えるiPhoneアプリ。","applicationCategory":"LifestyleApplication","operatingSystem":"iOS 26.1 or later","image":"https://stellise-app.com/assets/app-icon.png","downloadUrl":"https://apps.apple.com/jp/app/id6760934295","sameAs":["https://www.instagram.com/stellise_app","https://x.com/stellise_app","https://www.tiktok.com/@stellise_app"],"author":[{"@type":"Person","name":"Yunosuke Tokiwai"},{"@type":"Person","name":"Masashi Nakamura"}],"offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}},{"@type":"FAQPage","@id":"https://stellise-app.com/#faq","mainEntity":[{"@type":"Question","name":"Stelliseは無料で使えますか？","acceptedAnswer":{"@type":"Answer","text":"無料でダウンロードして基本機能を利用できます。Proは月額300円または年額3,000円で、初回は1週間無料で試せます。"}},{"@type":"Question","name":"環境音は無料版でも使えますか？","acceptedAnswer":{"@type":"Answer","text":"環境音はPro版限定です。焚き火、波、雨などの音を利用できます。"}},{"@type":"Question","name":"睡眠中の録音は保存されますか？","acceptedAnswer":{"@type":"Answer","text":"録音データ自体はサーバーに保存しません。音声を解析し、検知結果のみを睡眠の振り返りに利用します。"}}]}]}</script>
 </head>
 <body data-page="home">
   <div class="loader" id="loader" aria-label="読み込み中" role="status"><div class="loader-mark" aria-hidden="true"><span></span></div><p>Stellise</p></div>
 
   <header class="site-header" id="header">
-    <a class="brand" href="#top" aria-label="Stellise トップへ"><img src="assets/app-icon.png" alt=""><span>Stellise</span></a>
-    <nav aria-label="メインナビゲーション"><a href="#morning">朝の流れ</a><a href="#screens">アプリ画面</a><a href="#pricing">料金</a><a href="#faq">よくある質問</a></nav>
+    <a class="brand" href="#top" aria-label="Stellise トップへ"><img src="assets/app-icon-display.webp" alt=""><span>Stellise</span></a>
+    <nav aria-label="メインナビゲーション"><a href="#morning">朝の流れ</a><a href="#screens">アプリ画面</a><a href="#pricing">料金</a><a href="#faq">よくある質問</a><a class="nav-cta" href="https://apps.apple.com/jp/app/id6760934295?itscg=30200&amp;itsct=stellise_web_nav&amp;mttnsubad=6760934295" data-app-store-placement="nav">無料で始める</a></nav>
     <button class="menu-button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span></button>
   </header>
 
@@ -38,6 +46,10 @@
           <p class="eyebrow"><span></span>Sleep to Morning OS</p>
           <h1 id="hero-title">眠りから<br><em>朝をデザイン</em>する</h1>
           <p class="hero-lead">眠っている間を知り、起きたあとの順番まで整える。Stelliseは睡眠と朝のタスクをひとつにつなぐiPhoneアプリです。</p>
+          <div class="hero-actions">
+            <a class="app-store-badge app-store-badge-white magnetic" href="https://apps.apple.com/jp/app/id6760934295?itscg=30200&amp;itsct=stellise_web_hero&amp;mttnsubad=6760934295" aria-label="App StoreでStelliseを無料でダウンロード" data-app-store-placement="hero"><img src="assets/download-on-app-store-white.svg" alt="App Storeでダウンロード"></a>
+            <p><strong>無料でダウンロード</strong><span>Proは1週間無料で試せます</span></p>
+          </div>
         </div>
         <div class="hero-stage" aria-label="夜から朝へ変化するStelliseの画面">
           <figure class="hero-phone">
@@ -118,13 +130,13 @@
 
     <section class="makers"><div class="makers-inner reveal"><p>つくっている人</p><h2>頑張らせるのではなく<br>迷う回数を減らしたい</h2><blockquote>寝不足の日も、予定が崩れた日もあります。毎朝を完璧にするのではなく、少しだけ動きやすくする。そのためにStelliseをつくっています。</blockquote><div><span>Yunosuke Tokiwai</span><span>Masashi Nakamura</span></div></div></section>
 
-    <section class="closing"><div class="closing-inner reveal"><img src="assets/app-icon.png" alt="Stelliseアプリアイコン"><div><p>明日の朝から</p><h2>眠りを 朝の味方に</h2></div><a class="app-store-badge app-store-badge-white magnetic" href="https://apps.apple.com/jp/app/stellise-ai%E7%9D%A1%E7%9C%A0-%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E7%AE%A1%E7%90%86/id6760934295?itscg=30200&amp;itsct=apps_box_badge&amp;mttnsubad=6760934295" aria-label="App StoreでStelliseをダウンロード"><img src="assets/download-on-app-store-white.svg" alt="App Storeでダウンロード"></a></div></section>
+    <section class="closing"><div class="closing-inner reveal"><img src="assets/app-icon-display.webp" alt="Stelliseアプリアイコン"><div><p>明日の朝から</p><h2>眠りを 朝の味方に</h2></div><a class="app-store-badge app-store-badge-white magnetic" href="https://apps.apple.com/jp/app/id6760934295?itscg=30200&amp;itsct=stellise_web_footer&amp;mttnsubad=6760934295" aria-label="App StoreでStelliseをダウンロード" data-app-store-placement="footer"><img src="assets/download-on-app-store-white.svg" alt="App Storeでダウンロード"></a></div></section>
   </main>
 
-  <footer id="support"><div class="footer-main"><div><a class="brand" href="#top"><img src="assets/app-icon.png" alt=""><span>Stellise</span></a><p>睡眠から出発まで。毎朝の判断を減らすiPhoneアプリ。</p></div><div class="footer-links"><a href="terms.html">利用規約</a><a href="privacy.html">プライバシーポリシー</a><a href="mailto:yuu.developer@icloud.com">お問い合わせ</a><a href="https://github.com/Maaa2005/Stellise">GitHub</a></div><div class="socials"><a href="https://www.instagram.com/stellise_app?igsh=MW1obnBydjQzcDB4aA%3D%3D&amp;utm_source=qr" target="_blank" rel="noreferrer">Instagram</a><a href="https://x.com/stellise_app?s=11" target="_blank" rel="noreferrer">X</a><a href="https://www.tiktok.com/@stellise_app" target="_blank" rel="noreferrer">TikTok</a></div></div><div class="footer-bottom"><span>© 2026 Stellise Yunosuke Tokiwai &amp; Masashi Nakamura</span><span>iPhoneアプリ</span></div></footer>
+  <footer id="support"><div class="footer-main"><div><a class="brand" href="#top"><img src="assets/app-icon-display.webp" alt=""><span>Stellise</span></a><p>睡眠から出発まで。毎朝の判断を減らすiPhoneアプリ。</p></div><div class="footer-links"><a href="terms.html">利用規約</a><a href="privacy.html">プライバシーポリシー</a><a href="mailto:yuu.developer@icloud.com">お問い合わせ</a><a href="https://github.com/Maaa2005/Stellise">GitHub</a></div><div class="socials"><a href="https://www.instagram.com/stellise_app?igsh=MW1obnBydjQzcDB4aA%3D%3D&amp;utm_source=qr" target="_blank" rel="noreferrer">Instagram</a><a href="https://x.com/stellise_app?s=11" target="_blank" rel="noreferrer">X</a><a href="https://www.tiktok.com/@stellise_app" target="_blank" rel="noreferrer">TikTok</a></div></div><div class="footer-bottom"><span>© 2026 Stellise Yunosuke Tokiwai &amp; Masashi Nakamura</span><span>iPhoneアプリ</span></div></footer>
 
   <button class="chat-launcher" aria-label="Stelliseサポートを開く" aria-expanded="false"><span class="chat-pulse"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.49 3 2 6.81 2 11.5c0 2.44 1.23 4.67 3.39 6.23L4.5 21l3.73-1.72c1.18.47 2.45.72 3.77.72 5.51 0 10-3.81 10-8.5S17.51 3 12 3Z"/></svg></button>
   <aside class="chat-panel" aria-hidden="true" aria-label="Stelliseサポート"><div class="chat-header"><div><span class="assistant-dot"></span><strong>Stellise サポート</strong><small>マニュアルをもとに回答します</small></div><button class="chat-close" aria-label="チャットを閉じる">×</button></div><div class="chat-messages" aria-live="polite"><div class="message bot">こんにちは。使い方や料金、プライバシーについて、気軽に聞いてください。</div><div class="quick-replies"><button>何ができる？</button><button>Pro版の料金は？</button><button>環境音について</button></div></div><form class="chat-form"><label class="sr-only" for="chat-input">質問を入力</label><input id="chat-input" maxlength="500" autocomplete="off" placeholder="質問を入力…"><button type="submit" aria-label="送信">↑</button></form></aside>
-  <script src="script.js"></script>
+  <script src="script.js?v=20260731-1"></script>
 </body>
 </html>

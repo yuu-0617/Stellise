@@ -14,8 +14,24 @@ const lineSupportUrl = "https://lin.ee/pzygyU4";
 const conversationHistory = [];
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
-window.addEventListener("load", () => {
-  window.setTimeout(() => loader?.classList.add("hidden"), 720);
+function hideLoader() {
+  window.requestAnimationFrame(() => loader?.classList.add("hidden"));
+}
+
+if (document.readyState === "complete") hideLoader();
+else window.addEventListener("load", hideLoader, { once: true });
+window.setTimeout(hideLoader, 2400);
+
+document.querySelectorAll("[data-app-store-placement]").forEach((link) => {
+  link.addEventListener("click", () => {
+    const placement = link.dataset.appStorePlacement;
+    if (Array.isArray(window.dataLayer)) {
+      window.dataLayer.push({ event: "app_store_click", placement });
+    }
+    window.dispatchEvent(new CustomEvent("stellise:app-store-click", {
+      detail: { placement }
+    }));
+  });
 });
 
 window.addEventListener("scroll", () => {

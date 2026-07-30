@@ -509,6 +509,7 @@ linear-gradient(155deg,#080b16 0%,#10162a 54%,#242443 100%)}
   opacity:var(--copy-opacity);
   pointer-events:none;
 }
+.hero-copy .hero-actions{pointer-events:auto}
 .hero-copy:before{display:none}
 .hero-stage{
   position:absolute;
@@ -584,5 +585,5 @@ linear-gradient(155deg,#080b16 0%,#10162a 54%,#242443 100%)}
   .hero .task-card{right:34px}
 }
 @media(prefers-reduced-motion:reduce){
-  .hero{--phone-opacity:1;--rail-opacity:1;--copy-opacity:0;--morning-label-opacity:1}
+  .hero{--phone-opacity:1;--rail-opacity:1;--copy-opacity:1;--morning-label-opacity:1}
 }
