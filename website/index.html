@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f6f8">
+  <meta name="theme-color" content="#0c1020">
   <meta name="description" content="Stellise（ステライズ）は、睡眠、天気、交通、予定から、起きる時間と朝の順番を整えるiPhoneアプリです。朝が苦手なすべての人へ。">
   <meta name="apple-itunes-app" content="app-id=6760934295">
-  <meta property="og:title" content="Stellise｜起きてから、迷わない。">
+  <meta property="og:title" content="Stellise｜眠りから朝をデザインする">
   <meta property="og:description" content="睡眠から出発まで。毎朝の判断を減らすiPhoneアプリ。">
-  <meta property="og:image" content="assets/app-icon.png">
+  <meta property="og:image" content="assets/og-stellise.png">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <title>Stellise（ステライズ）｜睡眠から朝の予定まで整えるiPhoneアプリ</title>
   <link rel="icon" href="assets/app-icon.png">
   <link rel="apple-touch-icon" href="assets/app-icon.png">
@@ -25,35 +25,46 @@
 
   <header class="site-header" id="header">
     <a class="brand" href="#top" aria-label="Stellise トップへ"><img src="assets/app-icon.png" alt=""><span>Stellise</span></a>
-    <nav aria-label="メインナビゲーション"><a href="#morning">朝の流れ</a><a href="#screens">アプリ画面</a><a href="#pricing">料金</a><a href="#faq">よくある質問</a><a class="nav-cta" href="https://apps.apple.com/jp/app/stellise-ai%E7%9D%A1%E7%9C%A0-%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E7%AE%A1%E7%90%86/id6760934295?itscg=30200&amp;itsct=apps_box_badge&amp;mttnsubad=6760934295">App Store</a></nav>
+    <nav aria-label="メインナビゲーション"><a href="#morning">朝の流れ</a><a href="#screens">アプリ画面</a><a href="#pricing">料金</a><a href="#faq">よくある質問</a></nav>
     <button class="menu-button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span></button>
   </header>
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">睡眠から、出発まで。</p>
-        <h1 id="hero-title">起きてから、<br>迷わない。</h1>
-        <p class="hero-lead">睡眠、天気、交通、予定から、起きる時間と朝の順番を整える。朝の「次に何をする？」を減らすiPhoneアプリです。</p>
-        <div class="hero-actions">
-          <a class="app-store-badge magnetic" href="https://apps.apple.com/jp/app/stellise-ai%E7%9D%A1%E7%9C%A0-%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E7%AE%A1%E7%90%86/id6760934295?itscg=30200&amp;itsct=apps_box_badge&amp;mttnsubad=6760934295" aria-label="App StoreでStelliseをダウンロード"><img src="assets/download-on-app-store.svg" alt="App Storeでダウンロード"></a>
-          <p><strong>基本無料</strong><br>Proは1週間無料で試せます</p>
+      <div class="hero-sticky">
+        <div class="journey-sky" aria-hidden="true"><i class="sky-night"></i><i class="sky-dawn"></i><i class="sky-day"></i></div>
+        <div class="hero-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span>Sleep to Morning OS</p>
+          <h1 id="hero-title">眠りから<br><em>朝をデザイン</em>する</h1>
+          <p class="hero-lead">眠っている間を知り、起きたあとの順番まで整える。Stelliseは睡眠と朝のタスクをひとつにつなぐiPhoneアプリです。</p>
+        </div>
+        <div class="hero-stage" aria-label="夜から朝へ変化するStelliseの画面">
+          <figure class="hero-phone">
+            <img class="phone-layer phone-night" src="assets/home-night.webp" alt="Stelliseの夜画面">
+            <img class="phone-layer phone-sleep" src="assets/sleep-score.webp" alt="Stelliseの睡眠記録画面">
+            <img class="phone-layer phone-morning" src="assets/home-clear.webp" alt="Stelliseの朝画面" fetchpriority="high">
+          </figure>
+          <div class="phase-label floating-phase floating-bed"><span>22:48</span><b>寝る準備</b></div>
+          <div class="phase-label floating-phase floating-sleep"><span>02:16</span><b>睡眠を記録中</b></div>
+          <div class="phase-label floating-phase floating-wake"><span>06:54</span><b>起きやすい時間へ</b></div>
+          <div class="phase-label floating-phase floating-morning"><span>07:08</span><b>朝のタスクを開始</b></div>
+          <div class="wake-glow" aria-hidden="true"></div>
+        </div>
+        <div class="journey-progress" aria-label="夜から朝までの流れ">
+          <div class="journey-line"><i></i></div>
+          <span data-step="0">夜</span><span data-step="1">睡眠</span><span data-step="2">起床</span><span data-step="3">朝</span>
         </div>
       </div>
-      <div class="screen-deck" aria-label="Stelliseの実際の画面">
-        <figure class="deck-screen deck-rain reveal"><img src="assets/home-rain.webp" alt="雨の日のStelliseホーム画面"><figcaption>雨の日</figcaption></figure>
-        <figure class="deck-screen deck-clear reveal"><img src="assets/home-clear.webp" alt="晴れの日のStelliseホーム画面" fetchpriority="high"><figcaption>晴れの日</figcaption></figure>
-        <figure class="deck-screen deck-night reveal"><img src="assets/home-night.webp" alt="Stelliseの夜画面"><figcaption>眠る前</figcaption></figure>
-      </div>
-      <div class="hero-facts"><span>広告なし</span><span>録音データを保存しない</span><span>日本語対応</span></div>
     </section>
 
     <section class="statement reveal">
-      <p>朝に必要なのは、<br>もっと頑張ることではなく、<br><strong>考える回数を減らすこと。</strong></p>
+      <p>朝に必要なのは<br>もっと頑張ることではなく<br><strong>考える回数を減らすこと</strong></p>
+      <span>Sleep data becomes morning action</span>
     </section>
 
     <section class="morning" id="morning" aria-labelledby="morning-title">
-      <header class="section-head reveal"><p>ある雨の火曜日</p><h2 id="morning-title">いつもの朝が崩れても、<br>順番を組み直す。</h2><span>画面に出るのは、今することと出発までの時間です。</span></header>
+      <header class="section-head reveal"><p>ある雨の火曜日</p><h2 id="morning-title">いつもの朝が崩れても<br>順番を組み直す</h2><span>画面に出るのは、今することと出発までの時間です。</span></header>
       <div class="morning-layout">
         <figure class="morning-screen reveal"><img src="assets/home-rain.webp" alt="雨の日の朝のタスクを表示するStellise"></figure>
         <ol class="morning-timeline">
@@ -66,23 +77,23 @@
     </section>
 
     <section class="screens" id="screens" aria-labelledby="screens-title">
-      <header class="screens-title reveal"><p>実際のアプリ画面</p><h2 id="screens-title">一日を、朝だけで終わらせない。</h2></header>
+      <header class="screens-title reveal"><p>実際のアプリ画面</p><h2 id="screens-title">夜の記録を<br>朝の行動へ</h2></header>
       <article class="screen-row">
-        <div class="screen-copy reveal"><span>朝</span><h3>その日の条件を、ひとつの画面に。</h3><p>天気、出発時刻、移動手段、朝のタスク。見る場所を増やさず、次に必要なことをまとめます。</p></div>
+        <div class="screen-copy reveal"><span>Morning Flow</span><h3>その日の条件を<br>ひとつの画面に</h3><p>天気、出発時刻、移動手段、朝のタスク。見る場所を増やさず、次に必要なことをまとめます。</p></div>
         <figure class="app-screen light reveal"><img src="assets/home-clear.webp" alt="晴れの日のStelliseホーム画面"></figure>
       </article>
       <article class="screen-row reverse">
-        <div class="screen-copy reveal"><span>振り返り</span><h3>点数で責めず、傾向を見つける。</h3><p>睡眠スコアと一週間の変化を表示。生活リズムを知るための短いアドバイスを添えます。</p></div>
+        <div class="screen-copy reveal"><span>Sleep Insight</span><h3>点数で責めず<br>傾向を見つける</h3><p>睡眠スコアと一週間の変化を表示。生活リズムを知るための短いアドバイスを添えます。</p></div>
         <figure class="app-screen light reveal"><img src="assets/sleep-score.webp" alt="Stelliseの睡眠レポート画面"></figure>
       </article>
       <article class="screen-row night-row">
-        <div class="screen-copy reveal"><span>夜</span><h3>眠る前に見る情報は、少なく。</h3><p>起床までの時間とアラームを大きく表示します。<strong>環境音はPro版限定です。</strong></p></div>
+        <div class="screen-copy reveal"><span>Night Mode</span><h3>眠る前に見る情報は<br>少なく</h3><p>起床までの時間とアラームを大きく表示します。<strong>環境音はPro版限定です。</strong></p></div>
         <figure class="app-screen dark reveal"><img src="assets/home-night.webp" alt="Stelliseの夜画面"></figure>
       </article>
     </section>
 
     <section class="pricing" id="pricing" aria-labelledby="pricing-title">
-      <header class="section-head reveal"><p>料金</p><h2 id="pricing-title">まずは無料で。<br>必要になったらProへ。</h2><span>Proの機能は1週間無料で試せます。</span></header>
+      <header class="section-head reveal"><p>料金</p><h2 id="pricing-title">まずは無料で<br>必要になったらProへ</h2><span>Proの機能は1週間無料で試せます。</span></header>
       <div class="plan-table reveal">
         <div class="plan-row plan-header"><span>プラン</span><strong>無料</strong><strong>Pro</strong></div>
         <div class="plan-row"><span>スマートアラーム・朝タスク・睡眠の振り返り</span><b>利用可能</b><b>利用可能</b></div>
@@ -91,23 +102,23 @@
         <div class="plan-row"><span>交通状況の自動監視</span><b>制限あり</b><b>無制限</b></div>
         <div class="plan-row plan-price"><span>価格</span><b>¥0</b><b>月額 ¥300<br><small>年額 ¥3,000</small></b></div>
       </div>
-      <div class="pricing-action reveal"><p>年額プランは月額で12か月続けるより2か月分お得です。</p><a class="app-store-badge magnetic" href="https://apps.apple.com/jp/app/stellise-ai%E7%9D%A1%E7%9C%A0-%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E7%AE%A1%E7%90%86/id6760934295?itscg=30200&amp;itsct=apps_box_badge&amp;mttnsubad=6760934295" aria-label="App StoreでStelliseをダウンロード"><img src="assets/download-on-app-store.svg" alt="App Storeでダウンロード"></a></div>
+      <div class="pricing-action reveal"><p>年額プランは月額で12か月続けるより2か月分お得です。</p></div>
       <p class="pricing-note">サブスクリプションは期間終了の24時間前までに解約しない限り自動更新されます。価格はApp Store上の表示が優先されます。</p>
     </section>
 
     <section class="privacy-block" aria-labelledby="privacy-title">
-      <div class="privacy-copy reveal"><p>データについて</p><h2 id="privacy-title">眠っている時間を扱うから、<br>必要以上に集めない。</h2><p>音声と体動は端末内で解析します。録音データ自体をサーバーに保存することはありません。</p><a href="privacy.html">詳しいデータの扱いを見る →</a></div>
+      <div class="privacy-copy reveal"><p>データについて</p><h2 id="privacy-title">眠っている時間を扱うから<br>必要以上に集めない</h2><p>音声と体動は端末内で解析します。録音データ自体をサーバーに保存することはありません。</p><a href="privacy.html">詳しいデータの扱いを見る →</a></div>
       <dl class="privacy-list reveal"><div><dt>音声・体動</dt><dd>端末内で解析</dd></div><div><dt>録音データ</dt><dd>保存しない</dd></div><div><dt>アプリ内広告</dt><dd>なし</dd></div><div><dt>アカウント</dt><dd>アプリから削除可能</dd></div></dl>
     </section>
 
     <section class="faq" id="faq" aria-labelledby="faq-title">
-      <header class="faq-head reveal"><p>よくある質問</p><h2 id="faq-title">始める前に。</h2></header>
+      <header class="faq-head reveal"><p>よくある質問</p><h2 id="faq-title">始める前に</h2></header>
       <div class="faq-list"><details class="reveal"><summary>Stelliseは無料で使えますか？<span></span></summary><p>無料でダウンロードして基本機能を利用できます。Proは月額¥300または年額¥3,000で、初回は1週間無料で試せます。</p></details><details class="reveal"><summary>環境音は無料版でも使えますか？<span></span></summary><p>環境音はPro版限定です。焚き火、波、雨などの音を利用できます。</p></details><details class="reveal"><summary>睡眠中の録音は保存されますか？<span></span></summary><p>録音データ自体はサーバーに保存しません。音声を解析し、検知結果のみを睡眠の振り返りに利用します。</p></details><details class="reveal"><summary>対応している端末は？<span></span></summary><p>現在はiOS 26.1以降を搭載したiPhoneに対応しています。最新の対応状況はApp Storeで確認してください。</p></details><details class="reveal"><summary>睡眠レポートは医療目的ですか？<span></span></summary><p>医療目的ではありません。診断や治療が必要な場合は、医療機関へご相談ください。</p></details></div>
     </section>
 
-    <section class="makers"><div class="makers-inner reveal"><p>つくっている人</p><h2>頑張らせるのではなく、<br>迷う回数を減らしたい。</h2><blockquote>寝不足の日も、予定が崩れた日もあります。毎朝を完璧にするのではなく、少しだけ動きやすくする。そのためにStelliseをつくっています。</blockquote><div><span>Yunosuke Tokiwai</span><span>Masashi Nakamura</span></div></div></section>
+    <section class="makers"><div class="makers-inner reveal"><p>つくっている人</p><h2>頑張らせるのではなく<br>迷う回数を減らしたい</h2><blockquote>寝不足の日も、予定が崩れた日もあります。毎朝を完璧にするのではなく、少しだけ動きやすくする。そのためにStelliseをつくっています。</blockquote><div><span>Yunosuke Tokiwai</span><span>Masashi Nakamura</span></div></div></section>
 
-    <section class="closing"><div class="closing-inner reveal"><img src="assets/app-icon.png" alt="Stelliseアプリアイコン"><div><p>明日の朝から</p><h2>起きてから、迷わない。</h2></div><a class="app-store-badge app-store-badge-white magnetic" href="https://apps.apple.com/jp/app/stellise-ai%E7%9D%A1%E7%9C%A0-%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E7%AE%A1%E7%90%86/id6760934295?itscg=30200&amp;itsct=apps_box_badge&amp;mttnsubad=6760934295" aria-label="App StoreでStelliseをダウンロード"><img src="assets/download-on-app-store-white.svg" alt="App Storeでダウンロード"></a></div></section>
+    <section class="closing"><div class="closing-inner reveal"><img src="assets/app-icon.png" alt="Stelliseアプリアイコン"><div><p>明日の朝から</p><h2>眠りを 朝の味方に</h2></div><a class="app-store-badge app-store-badge-white magnetic" href="https://apps.apple.com/jp/app/stellise-ai%E7%9D%A1%E7%9C%A0-%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E7%AE%A1%E7%90%86/id6760934295?itscg=30200&amp;itsct=apps_box_badge&amp;mttnsubad=6760934295" aria-label="App StoreでStelliseをダウンロード"><img src="assets/download-on-app-store-white.svg" alt="App Storeでダウンロード"></a></div></section>
   </main>
 
   <footer id="support"><div class="footer-main"><div><a class="brand" href="#top"><img src="assets/app-icon.png" alt=""><span>Stellise</span></a><p>睡眠から出発まで。毎朝の判断を減らすiPhoneアプリ。</p></div><div class="footer-links"><a href="terms.html">利用規約</a><a href="privacy.html">プライバシーポリシー</a><a href="mailto:yuu.developer@icloud.com">お問い合わせ</a><a href="https://github.com/Maaa2005/Stellise">GitHub</a></div><div class="socials"><a href="https://www.instagram.com/stellise_app?igsh=MW1obnBydjQzcDB4aA%3D%3D&amp;utm_source=qr" target="_blank" rel="noreferrer">Instagram</a><a href="https://x.com/stellise_app?s=11" target="_blank" rel="noreferrer">X</a><a href="https://www.tiktok.com/@stellise_app" target="_blank" rel="noreferrer">TikTok</a></div></div><div class="footer-bottom"><span>© 2026 Stellise Yunosuke Tokiwai &amp; Masashi Nakamura</span><span>iPhoneアプリ</span></div></footer>

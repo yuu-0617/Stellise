@@ -8,6 +8,8 @@ const chatClose = document.querySelector(".chat-close");
 const chatForm = document.querySelector(".chat-form");
 const chatInput = document.querySelector("#chat-input");
 const chatMessages = document.querySelector(".chat-messages");
+const journey = document.querySelector(".hero");
+const journeySteps = document.querySelectorAll(".journey-progress [data-step]");
 const lineSupportUrl = "https://lin.ee/pzygyU4";
 const conversationHistory = [];
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
@@ -19,6 +21,78 @@ window.addEventListener("load", () => {
 window.addEventListener("scroll", () => {
   header?.classList.toggle("scrolled", window.scrollY > 28);
 }, { passive: true });
+
+function smoothstep(start, end, value) {
+  const progress = Math.max(0, Math.min(1, (value - start) / (end - start)));
+  return progress * progress * (3 - 2 * progress);
+}
+
+let journeyFrame = 0;
+let currentJourneyState = -1;
+
+function updateJourney() {
+  journeyFrame = 0;
+  if (!journey || reduceMotion.matches) return;
+
+  const bounds = journey.getBoundingClientRect();
+  const travel = Math.max(1, bounds.height - innerHeight);
+  const progress = Math.max(0, Math.min(1, -bounds.top / travel));
+  const phaseProgress = Math.max(0, Math.min(1, (progress - .18) / .82));
+  const introOpacity = 1 - smoothstep(.06, .22, progress);
+  const phoneOpacity = smoothstep(.15, .29, progress);
+  const nightOpacity = 1 - smoothstep(.18, .4, phaseProgress);
+  const sleepIn = smoothstep(.16, .36, phaseProgress);
+  const sleepOut = 1 - smoothstep(.48, .7, phaseProgress);
+  const sleepOpacity = sleepIn * sleepOut;
+  const morningOpacity = smoothstep(.56, .82, phaseProgress);
+  const dawnOpacity = smoothstep(.42, .76, phaseProgress);
+  const taskOpacity = smoothstep(.62, .84, phaseProgress);
+  const bedLabelOpacity = phoneOpacity * (1 - smoothstep(.13, .3, phaseProgress));
+  const sleepLabelOpacity = smoothstep(.16, .31, phaseProgress) * (1 - smoothstep(.43, .58, phaseProgress));
+  const wakeLabelOpacity = smoothstep(.42, .57, phaseProgress) * (1 - smoothstep(.66, .78, phaseProgress));
+  const morningLabelOpacity = smoothstep(.7, .84, phaseProgress);
+
+  journey.style.setProperty("--journey-progress", phaseProgress.toFixed(4));
+  journey.style.setProperty("--journey-percent", `${(phaseProgress * 100).toFixed(2)}%`);
+  journey.style.setProperty("--orbit-rotation", `${(phaseProgress * 80).toFixed(2)}deg`);
+  journey.style.setProperty("--orbit-scale", (1 + phaseProgress * .08).toFixed(4));
+  journey.style.setProperty("--copy-opacity", introOpacity.toFixed(4));
+  journey.style.setProperty("--copy-shift", `${(smoothstep(.06, .22, progress) * -28).toFixed(2)}px`);
+  journey.style.setProperty("--phone-opacity", phoneOpacity.toFixed(4));
+  journey.style.setProperty("--rail-opacity", phoneOpacity.toFixed(4));
+  journey.style.setProperty("--phone-shift", `${(phaseProgress * -18).toFixed(2)}px`);
+  journey.style.setProperty("--phone-scale", (1 + phaseProgress * .025).toFixed(4));
+  journey.style.setProperty("--night-scale", (1 + phaseProgress * .025).toFixed(4));
+  journey.style.setProperty("--sleep-scale", (1.025 - sleepOpacity * .025).toFixed(4));
+  journey.style.setProperty("--morning-scale", (1.025 - morningOpacity * .025).toFixed(4));
+  journey.style.setProperty("--wake-scale", (.72 + dawnOpacity * .45).toFixed(4));
+  journey.style.setProperty("--task-shift", `${((1 - taskOpacity) * 24).toFixed(2)}px`);
+  journey.style.setProperty("--night-opacity", nightOpacity.toFixed(4));
+  journey.style.setProperty("--sleep-opacity", sleepOpacity.toFixed(4));
+  journey.style.setProperty("--morning-opacity", morningOpacity.toFixed(4));
+  journey.style.setProperty("--dawn-opacity", dawnOpacity.toFixed(4));
+  journey.style.setProperty("--day-opacity", (morningOpacity * .72).toFixed(4));
+  journey.style.setProperty("--task-opacity", taskOpacity.toFixed(4));
+  journey.style.setProperty("--bed-label-opacity", bedLabelOpacity.toFixed(4));
+  journey.style.setProperty("--sleep-label-opacity", sleepLabelOpacity.toFixed(4));
+  journey.style.setProperty("--wake-label-opacity", wakeLabelOpacity.toFixed(4));
+  journey.style.setProperty("--morning-label-opacity", morningLabelOpacity.toFixed(4));
+
+  const nextState = Math.min(3, Math.floor(phaseProgress * 4.001));
+  if (nextState !== currentJourneyState) {
+    currentJourneyState = nextState;
+    journeySteps.forEach((step, index) => step.classList.toggle("active", index <= nextState));
+  }
+}
+
+function scheduleJourneyUpdate() {
+  if (journeyFrame) return;
+  journeyFrame = requestAnimationFrame(updateJourney);
+}
+
+window.addEventListener("scroll", scheduleJourneyUpdate, { passive: true });
+window.addEventListener("resize", scheduleJourneyUpdate, { passive: true });
+updateJourney();
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
