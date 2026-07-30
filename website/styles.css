@@ -510,6 +510,7 @@ linear-gradient(155deg,#080b16 0%,#10162a 54%,#242443 100%)}
   pointer-events:none;
 }
 .hero-copy .hero-actions{pointer-events:auto}
+.hero.copy-inert .hero-copy .hero-actions{pointer-events:none}
 .hero-copy:before{display:none}
 .hero-stage{
   position:absolute;

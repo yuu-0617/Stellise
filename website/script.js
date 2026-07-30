@@ -73,6 +73,7 @@ function updateJourney() {
   journey.style.setProperty("--orbit-rotation", `${(phaseProgress * 80).toFixed(2)}deg`);
   journey.style.setProperty("--orbit-scale", (1 + phaseProgress * .08).toFixed(4));
   journey.style.setProperty("--copy-opacity", introOpacity.toFixed(4));
+  journey.classList.toggle("copy-inert", introOpacity < .05);
   journey.style.setProperty("--copy-shift", `${(smoothstep(.06, .22, progress) * -28).toFixed(2)}px`);
   journey.style.setProperty("--phone-opacity", phoneOpacity.toFixed(4));
   journey.style.setProperty("--rail-opacity", phoneOpacity.toFixed(4));
