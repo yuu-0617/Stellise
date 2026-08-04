@@ -91,4 +91,4 @@ LINEサポート: `https://lin.ee/pzygyU4`
 - X: https://x.com/stellise_app
 - TikTok: https://www.tiktok.com/@stellise_app
 - LINEサポート: https://lin.ee/pzygyU4
-- GitHub: https://github.com/Maaa2005/Stellise
+- GitHub: https://github.com/yuu-0617
