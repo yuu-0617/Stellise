@@ -1,139 +1,145 @@
-# Stellise（ステライズ）
+# Stellise
 
-> 毎朝の「あと5分…」からの遅刻をなくす、プライバシー重視のAIアラーム＆朝のルーティン最適化アプリ（iOS / SwiftUI）
+睡眠から朝の支度、出発までをひとつにつなぐiPhoneアプリです。
 
-寝坊・電車の遅延・急な天候の変化など、予測しづらい朝のルーティン崩れを、オンデバイスAIと各種APIの連携で解決します。ユーザーに我慢を強いるのではなく、「睡眠状態・天気・交通・予定」からAIが“今やるべきこと”を判断し、毎朝の最適解を提案・再計算します。
+マイクとモーションセンサーから睡眠状態を推定し、眠りが浅い時間帯にアラームを鳴らします。起床後は、天気・予定・移動時間に合わせて、その朝にやることと出発時刻を整理します。
 
----
+[App Storeで見る](https://apps.apple.com/jp/app/stellise-ai%E7%9D%A1%E7%9C%A0-%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E7%AE%A1%E7%90%86/id6760934295?pt=128489607&ct=github_readme&mt=8) ｜ [公式サイト](https://stellise-app.com) ｜ [プライバシーポリシー](https://stellise-app.com/privacy.html) ｜ [サポート](https://stellise-app.com/#support)
 
-## スクリーンショット
+## 実際の画面
 
-| 朝（晴れ） | 朝（雨） | 夜 | タスク | 睡眠スコア |
-|:---:|:---:|:---:|:---:|:---:|
-| ![晴れ](docs/screenshots/home-clear.png) | ![雨](docs/screenshots/home-rain.png) | ![夜](docs/screenshots/home-night.png) | ![タスク](docs/screenshots/tasks.png) | ![睡眠スコア](docs/screenshots/sleep-score.png) |
+<p align='center'>
+  <img src='docs/screenshots/home-clear.png' alt='朝のホーム画面' width='23%'>
+  <img src='docs/screenshots/home-night.png' alt='夜の画面' width='23%'>
+  <img src='docs/screenshots/tasks.png' alt='朝のタスク画面' width='23%'>
+  <img src='docs/screenshots/sleep-score.png' alt='睡眠レポート画面' width='23%'>
+</p>
 
-背景は画像素材ではなく、**時刻と天気からSceneKitでリアルタイム生成**しています（晴れ／曇り／雨／早朝／夕方／夜で、空のグラデ・太陽/月・星・雲・雨を出し分け）。
+画面の背景は固定画像ではありません。時刻と天気に合わせて、SceneKitで空・太陽・月・星・雲・雨を描画しています。
 
----
+## なぜ作ったか
 
-## 概要（Overview）
+遅刻の原因は、起きられないことだけではありません。起きたあとに天気や電車の遅延で予定が崩れ、「何から始めるか」を考えている間にも時間は過ぎます。
 
-二度寝防止アプリにありがちな「パズルや計算で無理やり脳を起こすストレス」や、AIアプリにつきまとう「個人データ流出の不安」を取り除き、**人に寄り添うアシスタント**として設計しました。
+Stelliseは、睡眠と朝支度を別々に管理せず、次の流れとして扱います。
 
-- **課題**: 朝は「起きられない」だけでなく、起きた後も「天気・遅延で予定が崩れ、何から手をつけるか迷う」ことで遅刻が起きる。
-- **解決**: 起床（眠りの浅いタイミングでのアラーム）から、起床後のタスク再構成までを一気通貫で支援する。判断と段取りをAIに“代行”させ、ユーザーは迷わず動くだけにする。
+1. 睡眠中の音と体動を端末内で解析する
+2. 眠りが浅い時間帯に起こす
+3. 天気・カレンダー・移動時間を確認する
+4. 出発に間に合うよう、朝のタスクを並べ直す
 
----
+## 主な機能
 
-## 主な機能（Core Features）
+- **スマートアラーム**：睡眠状態を推定し、設定範囲内の起きやすい時間帯に通知
+- **睡眠レポート**：睡眠スコア、就床時間、いびき・体動の検知結果を表示
+- **朝のタスク提案**：予定、天気、移動時間をもとに朝の行動を整理
+- **予定変更への対応**：悪天候や交通状況を踏まえて出発時刻とタスクを見直し
+- **環境音**：焚き火・波・雨などの入眠用サウンドを再生（Stellise Pro限定）
+- **サブスクリプション**：StoreKitによる購入と復元
 
-### 1. オンデバイスAIによる睡眠解析と最適起床
-- 端末内の **TensorFlow Lite（YAMNet）** で音を分類し、**CoreMotion** の体動と合わせて睡眠の深さを推定。
-- 眠りが浅いタイミングを狙ってアラームを鳴らす「スマートアラーム」。音声・体動データは**端末内で解析が完結**し、外部に送信しません。
+## 設計
 
-### 2. 朝のルーティンの自動再計算（“思考の代行”）
-- **天気API** と **交通／経路（CoreLocation・MapKit）** を参照し、出発時刻を算出。
-- 遅延や悪天候を検知すると、AIが「何を削り・何を先にやるか」を判断し、**出発に間に合うようタスク配分を再構成**。緊急時はバナーで通知。
+```text
+マイク ──────┐
+              ├─ 端末内解析 ─ 睡眠スコア・検知結果
+CoreMotion ──┘      （生データは外部送信しない）
 
-### 3. ストレスを与えない行動支援
-- パズルや計算といった負荷ではなく、「やるべきことの取捨選択」を提示して自然に行動を促す。
-- タスクは一覧で表示し、**タップで完了**（スライド＋フェードの完了アニメ）。遅刻が近いタスクはオレンジのガラス表現でやさしく警告（パルス）。
+カレンダー ─┐
+天気・位置 ─┼─ スケジュール生成 ─ 朝のタスク・出発時刻
+睡眠結果 ───┘
 
-### 4. 睡眠スコアと生活リズムの可視化
-- 毎晩の睡眠を100点満点でスコア化し、**ヒーローのスコアリング（カウントアップ）**＋**週リング**で推移を可視化。
-- AIによる「サマリー」「アドバイス」を添えて、改善のヒントを提示。
+StoreKit ───── 購入・復元 ───── Stellise Pro
+```
 
-### 5. 心地よい入眠サポート
-- 環境音（焚き火・波・雨など）の再生、就寝モードの没入ダーク表示、伏せ置きでのOLEDブラックアウトなど、寝る前から起きた後までをカバー。
+音声と体動の生データは端末内で処理します。外部サービスへ送る情報と利用目的は、[プライバシーポリシー](https://stellise-app.com/privacy.html)に記載しています。
 
----
+## 技術的に工夫した点
 
-## 画面構成（Screens）
+### オンデバイスでの睡眠解析
 
-| 画面 | 役割 |
+TensorFlow LiteのYAMNetで環境音を分類し、CoreMotionで取得した体動と組み合わせています。録音データをクラウドへ送らずに解析できる構成にしました。
+
+### 朝の状況をひとつの流れとして扱う
+
+EventKit、CoreLocation、MapKit、天気・交通APIから得た情報を、朝のタスク生成にまとめて利用します。各機能を個別に表示するのではなく、出発までの行動へ変換することを重視しました。
+
+### 状態と見た目を分離する
+
+SwiftUIとCombineを用い、アプリの状態を`ObservableObject`で管理しています。色、余白、角丸、ガラス表現などはデザインシステムへ集約し、画面間の差を抑えています。
+
+### リリース後も改善を続ける
+
+App Storeへの公開後、ユーザーの利用状況と審査フィードバックをもとに8回のアップデートを行いました。実装だけでなく、申請、プライバシー開示、サブスクリプション設定、Webサイト運用まで継続して担当しています。
+
+## 技術構成
+
+| 分野 | 技術 |
 |---|---|
-| **ホーム（朝・DayView）** | 時刻・天気・出発時刻・移動手段のヘッダー、AIが組んだ朝タスク一覧。背景は天気連動の3D。 |
-| **ホーム（夜・NightView）** | 就寝モード。没入ダーク＋環境音＋アラーム設定。 |
-| **睡眠データ（SleepDataView）** | 睡眠スコア（リング）・週リング・就床時間・体動/いびき検知回数・サマリー/アドバイス。 |
-| **アラーム（AlarmRingingView）** | 起床ミッション。夜→朝の色変化で起こす。 |
-| **オンボーディング（WelcomeView ほか）** | 寝具の硬さ・移動手段・朝のタスク・カレンダー連携の初期設定。 |
-| **設定（SettingsView）** | アラーム・スマート起床・環境音・課金などの管理。 |
+| iOS | Swift、SwiftUI、Combine |
+| オンデバイスAI | TensorFlow Lite、YAMNet |
+| センサー・音声 | CoreMotion、AVFoundation、AudioToolbox |
+| 位置・予定 | CoreLocation、MapKit、EventKit |
+| 3D表現 | SceneKit、Canvas |
+| OS連携 | UserNotifications、App Intents |
+| 課金 | StoreKit |
+| 認証・データ | Firebase Authentication、Cloud Firestore |
+| API | Python、天気API、交通・経路API、Google Gemini API |
+| Web | HTML、CSS、JavaScript、PHP |
 
----
+## 開発体制と担当
 
-## 技術的ハイライト（Engineering Highlights）
+2名で開発しています。
 
-- **生成的な3D背景（SceneKit）**: 画像素材に頼らず、`Background3D.swift` で空のグラデーション・天体（太陽/月）・星・雲・雨をコードから生成。時刻に応じて天体が東→南中→西へ弧を描いて移動し、天気で見た目が変わる。雲は複数パフ＋陰影で立体的に、雨は降雨＋「窓ガラスに伝う水滴」まで表現。
-- **オンデバイス機械学習**: `SoundAnalyzer.swift` が TensorFlow Lite（YAMNet）で音を分類、`SensorManager.swift` が CoreMotion で体動を取得。クラウド推論なしで睡眠解析を実現。
-- **リアクティブな状態管理**: `AppState`（`ObservableObject`）＋ Combine を中核に、SwiftUIへ状態を一元配信。
-- **デザインシステム**: `DesignSystem.swift` にカラートークン・タイポ・角丸・ガラス表現（`.glassCard()`）を集約し、画面間で一貫したトーン（紺×ブルー基調のダークUI）を担保。
-- **OS連携**: App Intents（Siri/ショートカット）、EventKit（カレンダー）、UserNotifications（通知）、StoreKit（サブスク）。
+**担当したこと（Yunosuke Tokiwai）**
 
----
+- 企画、要件整理、全体進行
+- センサー、睡眠解析、天気・交通連携などUI以外のiOS実装
+- Python/PHP APIとFirebase連携
+- StoreKitによるサブスクリプション対応
+- テスト、App Store申請、公開後のアップデート
+- 公式サイト、サポート導線、プライバシー関連ページの運用
 
-## 技術構成（Tech Stack）
+**分担したこと**
 
-| 区分 | 使用技術 |
-|---|---|
-| 言語・UI | Swift / SwiftUI / Combine |
-| 3D・グラフィックス | SceneKit（背景の手続き生成）、Canvas（雲・雨・水滴の描画） |
-| 機械学習（オンデバイス） | TensorFlow Lite（YAMNet による音声分類） |
-| センサー・位置 | CoreMotion（体動）、CoreLocation / MapKit（位置・経路） |
-| 音声 | AVFoundation / AudioToolbox（環境音・アラーム・マイク入力） |
-| OS連携 | App Intents、EventKit、UserNotifications、SafariServices |
-| 課金 | StoreKit（サブスクリプション） |
-| 認証・同期 | Firebase（Auth / Firestore） |
-| 外部API | 天気API、交通／経路 |
+- UI設計と画面実装はチームメンバーが担当
+- 仕様と実装の接続部分は相談しながら調整
 
----
+## プライバシー
 
-## プライバシー・バイ・デザイン（Privacy by Design）
+- 音声と体動の生データは外部サーバーへ送信・保存しません
+- 第三者広告と広告目的のトラッキングSDKは使用していません
+- Firebaseは匿名認証と必要なデータの保存に使用します
+- AIへの送信対象と利用目的をプライバシーポリシーで公開しています
 
-- **音声・体動の生データは端末内で完結**: 音声分類（YAMNet）と体動解析はオンデバイスで行い、**生の音声データ・センサーデータを外部へ送信しません**。
-- **サーバへ送信するデータ（AIタスク提案・天気・経路計算のため）**: カレンダー予定のタイトルと時刻、睡眠スコア（数値のみ）、おおよその位置情報（緯度経度）、タスクのフィードバック履歴を、Firebase匿名認証で保護された自社APIサーバに送信します。生の音声・体動データは送信しません。
-- **学習への二次利用なし**: ユーザーのフィードバックをAIモデルの学習へ転用しません。
-- **広告の排除**: アプリ内広告・トラッキングSDKは搭載していません。
+## ローカルでの実行
 
----
+### iOS
 
-## 実装状況・今後（Status & Roadmap）
-
-実装済み：
-
-- 天気連動の3D背景（晴れ／曇り／雨／早朝／夕方／夜）
-- 朝タスクの一覧表示・タップ完了・各種アニメーション（登場／完了／遅刻警告）
-- 睡眠レポートの端末内保存と週リング・就床時間・体動/いびき検知回数の表示
-
-今後の予定：
-
-- App Store Server APIによるプレミアム権利のサーバ側検証
-- NightView の円形タイマー刷新と OLED ブラックアウト
-- オンボーディングのプリパーミッション（権限の必要性を先に説明）
-
----
-
-## 開発・実行（Getting Started）
+macOS、Xcode、CocoaPodsが必要です。
 
 ```bash
-# 依存（CocoaPods）
 pod install
-
-# Stellise.xcworkspace を Xcode で開いてビルド
 open Stellise.xcworkspace
+```
 
-# バックエンド依存の導入
-# Python 3.10以上を使用
+Firebaseの`GoogleService-Info.plist`と各種API設定はリポジトリに含めていません。ローカル設定を追加してからビルドしてください。
+
+### APIテスト
+
+```bash
 python3 -m pip install -r requirements.txt
-
-# バックエンドテスト
 python3 -m pytest
 ```
 
-- 実行には `GoogleService-Info.plist`（Firebase）が必要です（リポジトリには含めていません）。
-- iOS シミュレータ／実機で動作します。
+## 公開状況
 
----
+- App Storeで公開中
+- 日本向けに配信
+- 無料版とStellise Proを提供
+- 2026年8月時点で継続開発中
 
-## クレジット（Credits）
+## クレジット
 
-- アラーム音・環境音: [OtoLogic](https://otologic.jp)（[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)）
+- アラーム音・環境音：[OtoLogic](https://otologic.jp)（[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)）
+
+© 2026 Stellise Yunosuke Tokiwai & Masashi Nakamura
