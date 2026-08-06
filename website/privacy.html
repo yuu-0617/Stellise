@@ -8,7 +8,8 @@
   <meta name="description" content="Stelliseプライバシーポリシー">
   <title>プライバシーポリシー — Stellise</title>
   <link rel="canonical" href="https://stellise-app.com/privacy.html">
-  <link rel="icon" href="assets/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-180.png">
   <link rel="stylesheet" href="styles.css?v=20260731-2">
 </head>
 <body class="legal-body">
@@ -19,13 +20,63 @@
   <main class="legal-main">
     <p class="section-label">PRIVACY POLICY</p>
     <h1>プライバシーポリシー</h1>
-    <p class="legal-intro">Stelliseは、眠りという極めて個人的な時間を扱うからこそ、必要なデータだけを、必要な場所で扱うことを原則とします。</p>
-    <article><h2>1. 取得する情報と利用目的</h2><p>当アプリは、以下の情報を提供・利便性向上のために取得します。</p><ul><li><strong>氏名（ニックネーム）</strong>：アプリ内での表示、パーソナライズのため。</li><li><strong>身体情報（任意）</strong>：睡眠品質の計算および健康に関する推奨事項の提供のため。</li><li><strong>カレンダー情報</strong>：予定を読み取り、最適な出発時刻やスケジュールを自動生成するため。</li><li><strong>位置情報</strong>：目的地までの移動時間を計算するためにのみ使用します。</li><li><strong>音声解析データ</strong>：マイクから取得した音声をAIで解析し、いびきや環境音を検知します。<strong>録音データ自体はサーバーに保存されず、解析結果のみを統計として使用します。</strong></li></ul></article>
-    <article><h2>2. AI（Google Gemini API）の利用について</h2><p>本アプリは、ユーザーに最適なタスク提案（執事モード等）を行うため、以下のデータをGoogle Gemini API（第三者AIサービス）に送信します。</p><ul><li>取得・送信するデータ：ユーザーが登録したタスク名、カレンダーの予定データ、天気情報</li><li>利用目的：AIによるスケジュールの自動生成およびタスク提案のため</li></ul><p><strong>Google Cloudの有料枠（Paid Tier）を利用しており、</strong>送信されたデータは回答生成のためだけに一時的に使用され、AIの学習モデルには使用されません。Google社は本アプリと同等のプライバシー保護基準を遵守しています。</p></article>
-    <article><h2>3. データの保存と管理</h2><p>データはFirebase（Google Cloud）の安全なサーバーに保存され、適切なセキュリティ対策を講じています。</p></article>
-    <article><h2>4. アカウントの削除について</h2><p>ユーザーはアプリ内の設定画面より、いつでもアカウントの削除をリクエストできます。削除に伴い、サーバー上の個人データはすべて消去されます。</p></article>
-    <article><h2>5. お問い合わせ先</h2><p><a href="mailto:yuu.developer@icloud.com">yuu.developer@icloud.com</a></p></article>
-    <div class="legal-note"><p>Notionに掲載されている原文：<a href="https://dusty-jobaria-c70.notion.site/Stellise-3297d70e2c8c80e59cb0c9bd2fb0c008?pvs=74">Stellise プライバシーポリシー（Notion）</a></p></div>
+    <p class="legal-intro">Stelliseは、朝の準備と睡眠の振り返りに必要なデータだけを、機能の提供に必要な範囲で取り扱います。</p>
+
+    <article>
+      <h2>1. 取得する情報と利用目的</h2>
+      <ul>
+        <li><strong>匿名ユーザID</strong>：Firebaseの匿名認証、アプリ機能の保護、Stellise Proの利用状態の同期に使用します。</li>
+        <li><strong>おおよその位置情報</strong>：天気の取得、目的地までの移動時間および出発時刻の計算に使用します。</li>
+        <li><strong>健康に関する情報</strong>：睡眠スコア、いびき・体動の検知結果などを、睡眠レポートと朝の提案に使用します。</li>
+        <li><strong>その他のユーザコンテンツ</strong>：ユーザーが登録したタスク名、カレンダー予定のタイトルと時刻を、スケジュール生成に使用します。</li>
+        <li><strong>製品の操作情報</strong>：タスクへのGood／Bad評価を、次回以降の提案の調整に使用します。</li>
+        <li><strong>購入状態</strong>：Stellise Proが有効かどうかを、機能の提供と復元に使用します。クレジットカード番号などの支払い情報を当方が取得することはありません。</li>
+      </ul>
+    </article>
+
+    <article>
+      <h2>2. 音声・体動データの処理</h2>
+      <p>マイクから取得した音声と端末のモーション情報は、いびきや体動を検知するため端末内で解析します。生の録音データおよび生の体動データを外部サーバーへ送信または保存することはありません。外部へ送信する場合があるのは、睡眠スコアなどの解析結果のみです。</p>
+    </article>
+
+    <article>
+      <h2>3. 外部サービスの利用</h2>
+      <p>本アプリは、機能の提供に必要な範囲で次のサービスを利用します。</p>
+      <ul>
+        <li><strong>Firebase Authentication / Cloud Firestore</strong>：匿名ユーザIDによる認証と、Stellise Proの有効状態の保存に使用します。</li>
+        <li><strong>Google Gemini API（Google Cloud Paid Tier）</strong>：タスク名、カレンダー予定、天気情報、睡眠スコア、タスク評価をもとに、朝のスケジュールやタスクを提案します。送信データは回答生成のために使用され、Googleの基盤モデルの学習には使用されません。</li>
+        <li><strong>Apple StoreKit</strong>：サブスクリプションの購入、確認、復元に使用します。決済情報はAppleが取り扱います。</li>
+      </ul>
+    </article>
+
+    <article>
+      <h2>4. データの関連付けとトラッキング</h2>
+      <p>匿名ユーザIDとStellise Proの購入状態は、アプリ内アカウントに関連付けて取り扱います。位置情報、健康情報、タスク・カレンダー情報、操作情報は、機能提供のために処理し、広告目的のプロフィールには使用しません。</p>
+      <p>本アプリは第三者広告を表示せず、取得した情報を広告目的で他社データと組み合わせるトラッキングや、データブローカーへの販売・提供を行いません。</p>
+    </article>
+
+    <article>
+      <h2>5. 保存・管理とアカウント削除</h2>
+      <p>保存が必要な情報はFirebase（Google Cloud）上で適切な安全管理措置を講じて管理します。ユーザーはアプリ内の設定画面からアカウント削除をリクエストできます。削除に伴い、当方のサーバーに保存された当該アカウントのデータを消去します。</p>
+      <p>アカウントを削除してもAppleのサブスクリプションは自動解約されません。解約はApp Storeのサブスクリプション設定から行ってください。</p>
+    </article>
+
+    <article>
+      <h2>6. 権限の管理</h2>
+      <p>位置情報、カレンダー、マイク、モーションなどのアクセス権限は、iPhoneの設定からいつでも変更できます。一部の権限を無効にした場合、関連する機能を利用できないことがあります。</p>
+    </article>
+
+    <article>
+      <h2>7. 本ポリシーの変更</h2>
+      <p>機能や法令の変更に応じて本ポリシーを改定する場合があります。重要な変更がある場合は、アプリまたは本ページでお知らせします。</p>
+    </article>
+
+    <article>
+      <h2>8. お問い合わせ</h2>
+      <p><a href="mailto:yuu.developer@icloud.com">yuu.developer@icloud.com</a></p>
+    </article>
+
+    <div class="legal-note"><p>制定・最終更新日：2026年7月31日</p></div>
   </main>
   <footer><div class="footer-bottom"><span>© 2026 Stellise Yunosuke Tokiwai &amp; Masashi Nakamura</span><div><a href="index.html">ホーム</a><a href="terms.html">利用規約</a></div></div></footer>
 </body>
